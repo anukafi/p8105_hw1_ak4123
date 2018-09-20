@@ -1,6 +1,6 @@
 ---
 title: "p8105_hw1_ak4123"
-output: html_document
+output: github_document
 ---
 ## Question 1
 
