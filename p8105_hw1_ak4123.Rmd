@@ -11,7 +11,7 @@ output: github_document
 ## __Question 1__
 
 ### _A. Create dataframe_
-```{R}
+```{r Dataframe_1}
 library(tidyverse)
 set.seed(1234)
 question1_df = tibble(
@@ -25,16 +25,16 @@ question1_df = tibble(
 ```
 
 ### _B. Mean of the each variable in the dataframe_
-```{R}
-mean (question1_df$vec.numeric)
-mean (question1_df$vec.logical)
-mean (question1_df$vec.char)
-mean (question1_df$vec.factor)
+```{r means}
+mean(question1_df$vec.numeric)
+mean(question1_df$vec.logical)
+mean(question1_df$vec.char)
+mean(question1_df$vec.factor)
 ```
-##### The mean of the numeric vector is 2.446132. This was able to work because we are just taking the mean of numeric values.
+#### The mean of the numeric vector is 2.446132. This was able to work because we are just taking the mean of numeric values.
 #### The mean of the logical vector is 0.7. This was able to work because things labelled as True were counted as 1 and False were counted as 2, then the mean was taken of these numeric values.
-##### The mean of the character variable is not available. We are unable to take a mean of this variable because it is not numeric or logical
-##### The mean of the factor variable is not available. We are unable to take a mean of this variable because it is not numeric or logical.
+#### The mean of the character variable is not available. We are unable to take a mean of this variable because it is not numeric or logical
+#### The mean of the factor variable is not available. We are unable to take a mean of this variable because it is not numeric or logical.
 
 ###_C. Apply the as.numeric function to the logical, character, and factor variables_
 ```{r results = 'hide'}
@@ -42,22 +42,22 @@ as.numeric(question1_df$vec.logical)
 as.numeric(question1_df$vec.char)
 as.numeric(question1_df$vec.factor)
 ```
-##### By applying the as.numeric function to the logical variable, the entries that should be false are made a 0 and the ones that should be a true are made a 1.
-##### By applying the as.numeric function to the character variable, the entries were all turned into NA.
-##### By applying the as.numeric function to the factor variable, the entries that should be male are made a 2 and the ones that should be a woman are made a 1. 
+#### By applying the as.numeric function to the logical variable, the entries that should be false are made a 0 and the ones that should be a true are made a 1.
+#### By applying the as.numeric function to the character variable, the entries were all turned into NA.
+#### By applying the as.numeric function to the factor variable, the entries that should be male are made a 2 and the ones that should be a woman are made a 1. 
 
 ### _D. Convert character variable from character to factor to numeric and convert factor variable from factor to character to numeric_
-```{R}
+```{r coercion_step_2}
 as.numeric(as.factor(question1_df$vec.char))
 as.numeric(as.character(question1_df$vec.factor))
 ```
-##### Converting the character vector into a factor vector then into a numeric vector turned the character words each into a factor (so it assigned each word a factor) then each factor was given a number when it got convered to numeric. For example, two of the same words were assigned a 5. 
-##### Converting the factor vector into a character vector then into a numeric vector simply produced N/A for all the entries, as the factors were unable to be converted to characters. 
+#### Converting the character vector into a factor vector then into a numeric vector turned the character words each into a factor (so it assigned each word a factor) then each factor was given a number when it got convered to numeric. For example, two of the same words were assigned a 5. 
+#### Converting the factor vector into a character vector then into a numeric vector simply produced N/A for all the entries, as the factors were unable to be converted to characters. 
 
 ## __Question 2__
 
 ### _A. Create dataframe_
-```{R}
+```{r dataframe_2}
 set.seed(1234)
 
 question2_df = tibble(
@@ -73,19 +73,22 @@ question2_df = tibble(
 `r {mean(question2_df$x)}` is the mean of x and `r {median(question2_df$x)}` is the median of x. 
 `r {mean(question2_df$vec.logical)}` is the proprtion of cases for which the logical vector is TRUE 
 
-### _C. Scatterplots of y vs x_
-```{R}
-
+### _C. Scatterplot of y vs x -- Color scale: Logical Vector_
+```{r scatterplot_1}
+ggplot(question2_df, aes(x = x, y = y, color = vec.logical)) + geom_point()
 ggsave("scatter_plot.pdf", height = 4, width = 6)
 ```
-Color Scale: Green is x+y is greater than 0 and Red is x+y is not greater than 0 
-Note: This first plot was saved using ggsave function
-```{R}
+#### Color Scale (Plot 1): Green is x+y is greater than 0 and Red is x+y is not greater than 0. This plot was saved using the ggsave function. 
+
+### _D. Scatterplot of y vs x -- Color scale: Numeric_
+```{r scatterplot_2}
 ggplot(question2_df, aes(x = x, y = y, color = vec.numeric)) + geom_point()
 ```
-Color Scale: The colors are a range, the darkest blue/black is 0.00 and the lightest blue is 1.00
-```{R}
+#### Color Scale (Plot 2): The colors are a range, the darkest blue/black is 0.00 and the lightest blue is 1.00
+
+### _E. Scatterplot of y vs x -- Color scale: Factor_
+```{r scatterplot_3}
 ggplot(question2_df, aes(x = x, y = y, color = vec.factor)) + geom_point()
 ```
-Color Scale: Green is True, Red is False  
+#### Color Scale (Plot 3): Green is True, Red is False  
 
