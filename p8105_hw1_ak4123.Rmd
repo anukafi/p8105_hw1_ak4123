@@ -2,3 +2,17 @@
 title: "p8105_hw1_ak4123"
 output: github_document
 ---
+## Question 1
+
+## Create dataframe
+
+```{R}
+library(tidyverse)
+set.seed(1234)
+question1_df = tibble(
+  vec.numeric = runif(n = 10, min = 0, max = 5),
+  vec.logical = c(vec.numeric > 2),
+  vec.char = c("My", "name", "is", "Anu", "and", "this", "is", "my", "homework", "attempt"),
+  vec.factor = factor(c("male", "male", "female", "female", "male", "male", "female", "female", "male", "male"))
+)
+```
