@@ -42,3 +42,12 @@ as.numeric(question1_df$vec.factor)
 ## By applying the as.numeric function to the logical variable, the entries that should be false are made a 0 and the ones that should be a true are made a 1.
 ## By applying the as.numeric function to the character variable, the entries were all turned into NA.
 ## By applying the as.numeric function to the factor variable, the entries that should be male are made a 2 and the ones that should be a woman are made a 1. 
+```
+```{R}
+## Write a second code chunk and covert your character variable from character to factor to numeric and convert your factor variable from factor to character to numeric 
+
+as.numeric(as.factor(question1_df$vec.char))
+## This code turned the character words each into a factor (so it assigned each word a factor) then each factor was given a number when it got convered to numeric. 
+as.numeric(as.character(question1_df$vec.factor))
+## This code simply produced NAs for all the entries as the factors were unable to be converted to characters. 
+```
