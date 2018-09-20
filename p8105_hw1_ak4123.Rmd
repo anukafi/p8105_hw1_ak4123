@@ -16,3 +16,19 @@ question1_df = tibble(
   vec.factor = factor(c("male", "male", "female", "female", "male", "male", "female", "female", "male", "male"))
 )
 ```
+```{R}
+## Try taking the mean of the each variable in the dataframe
+## ## 
+mean (question1_df$vec.numeric)
+## mean = 2.446132
+## this was able to work because we are just taking the means of numeric values 
+mean (question1_df$vec.logical)
+## mean 0.7
+## this was able to work because things labelled as True were counted as 1 and False were counted as 2, then the mean was taken of these numeric values. 
+mean (question1_df$vec.char)
+## Mean = N/a
+## We are unable to take a mean of this variable because it is not numeric or logical 
+mean (question1_df$vec.factor)
+## Mean = N/a
+## We are unable to take a mean of this variable because it is not numeric or logical 
+```
