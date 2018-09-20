@@ -32,9 +32,9 @@ mean (question1_df$vec.factor)
 ## Mean = N/a
 ## We are unable to take a mean of this variable because it is not numeric or logical 
 ```
-```{r results = hide}
-## Write a code chunk that applies the as.numeric function to the logical, character, and factor variables (show chunk but not output)
 
+```{r results = 'hide'}
+## Write a code chunk that applies the as.numeric function to the logical, character, and factor variables (show chunk but not output)
 as.numeric(question1_df$vec.logical)
 as.numeric(question1_df$vec.char)
 as.numeric(question1_df$vec.factor)
@@ -43,6 +43,7 @@ as.numeric(question1_df$vec.factor)
 ## By applying the as.numeric function to the character variable, the entries were all turned into NA.
 ## By applying the as.numeric function to the factor variable, the entries that should be male are made a 2 and the ones that should be a woman are made a 1. 
 ```
+
 ```{R}
 ## Write a second code chunk and covert your character variable from character to factor to numeric and convert your factor variable from factor to character to numeric 
 
@@ -51,3 +52,17 @@ as.numeric(as.factor(question1_df$vec.char))
 as.numeric(as.character(question1_df$vec.factor))
 ## This code simply produced NAs for all the entries as the factors were unable to be converted to characters. 
 ```
+
+##Question2############################################
+```{R}
+set.seed(1234)
+
+question2_df = tibble(
+  x = rnorm(1000),
+  y = rnorm(1000),
+  vec.logical =  x + y > 0,
+  vec.numeric = as.numeric(vec.logical),
+  vec.factor = as.factor(vec.logical)
+)  
+```
+
