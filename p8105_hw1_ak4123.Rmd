@@ -32,7 +32,7 @@ mean (question1_df$vec.factor)
 ## Mean = N/a
 ## We are unable to take a mean of this variable because it is not numeric or logical 
 ```
-```{r}
+```{r results = hide}
 ## Write a code chunk that applies the as.numeric function to the logical, character, and factor variables (show chunk but not output)
 
 as.numeric(question1_df$vec.logical)
