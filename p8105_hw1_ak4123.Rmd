@@ -1,6 +1,6 @@
 ---
 title: "p8105_hw1_ak4123"
-output: github_document
+output: html_document
 ---
 ## Question 1
 
@@ -65,4 +65,7 @@ question2_df = tibble(
   vec.factor = as.factor(vec.logical)
 )  
 ```
+`r {dim(question2_df)}` is the dimensions of this dataset.
+`r {mean(question2_df$x)}` is the mean of x and `r {median(question2_df$x)}` is the median of x. 
+`r {mean(question2_df$vec.logical)}` is the proprtion of cases for which the logical vector is TRUE 
 
