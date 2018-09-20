@@ -1,0 +1,4 @@
+---
+title: "p8105_hw1_ak4123"
+output: github_document
+---
