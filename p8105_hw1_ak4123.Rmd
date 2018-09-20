@@ -69,3 +69,16 @@ question2_df = tibble(
 `r {mean(question2_df$x)}` is the mean of x and `r {median(question2_df$x)}` is the median of x. 
 `r {mean(question2_df$vec.logical)}` is the proprtion of cases for which the logical vector is TRUE 
 
+```{R}
+## Make a scatterplot of y vs x;
+ggplot(question2_df, aes(x = x, y = y, color = vec.logical)) + geom_point()
+ggsave("scatter_plot.pdf", height = 4, width = 6)
+## green is true, red is false 
+##this was saved using ggsave
+ggplot(question2_df, aes(x = x, y = y, color = vec.numeric)) + geom_point()
+## the colors are a range, the darkest blue/black is 0 and the lightest blue is 1
+ggplot(question2_df, aes(x = x, y = y, color = vec.factor)) + geom_point()
+## green is true, red is false 
+```
+
+
